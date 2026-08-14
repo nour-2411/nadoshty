@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+<title>Happy Birthday Nada ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ AMBIENT BACKGROUND (behind every screen) ============ -->
+  <canvas id="bg-canvas"></canvas>
+  <div id="sparkle-layer"></div>
+
+  <!-- ============ MUSIC TOGGLE (always visible) ============ -->
+  <button id="music-toggle" aria-label="music toggle">🔇</button>
+  <audio id="bg-music" src="assets/music.mp3" loop preload="auto"></audio>
+
+  <!-- ============ SCREEN 1 — INTRO ============ -->
+  <section id="screen-intro" class="screen active">
+    <div class="locket" aria-hidden="true">
+      <div class="locket-heart heart-a"></div>
+      <div class="locket-heart heart-b"></div>
+    </div>
+    <div class="intro-text-stack">
+      <p class="intro-line" data-line="0">🎁 عندي حاجة صغيرة ليكي يا ندى...</p>
+      <p class="intro-line" data-line="1">بس الحاجة دي مش أي حاجة... ❤️</p>
+      <p class="intro-line" data-line="2">دي عشان واحدة أنا بعتبرها زي أختي بالظبط 🥹❤️</p>
+    </div>
+    <button id="btn-start" class="btn btn-primary reveal-btn">Yalla nebd2? ✨</button>
+  </section>
+
+  <!-- ============ SCREEN 2 — COUNTDOWN ============ -->
+  <section id="screen-countdown" class="screen">
+    <h2 class="screen-title">🎂 السورپرايز جاهزة ليكي بعد...</h2>
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><span id="cd-days">00</span><small>Days</small></div>
+      <div class="cd-box"><span id="cd-hours">00</span><small>Hours</small></div>
+      <div class="cd-box"><span id="cd-minutes">00</span><small>Minutes</small></div>
+      <div class="cd-box"><span id="cd-seconds">00</span><small>Seconds</small></div>
+    </div>
+    <p class="soft-line">متستعجليش 😂❤️<br>كل حاجة ليها وقتها...</p>
+  </section>
+
+  <!-- ============ SCREEN 3 — CELEBRATION ============ -->
+  <section id="screen-celebrate" class="screen">
+    <canvas id="confetti-canvas"></canvas>
+    <div id="balloons"></div>
+    <div class="celebrate-content">
+      <h1 class="glow-title">🎉 HAPPY BIRTHDAY YA NADA 🎉</h1>
+      <p class="celebrate-sub">كل سنة وانتي طيبة يا ندوش ❤️</p>
+      <p class="celebrate-sub small">يارب السنة دي تكون أحلى سنة عليكي،<br>وتحققي كل حاجة نفسك فيها ✨</p>
+      <button id="btn-open-message" class="btn btn-primary">🎁 افتحي المسدج</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 4 — PERSONAL MESSAGE ============ -->
+  <section id="screen-letter" class="screen">
+    <div class="letter-card glass">
+      <div class="letter-scroll">
+        <p id="letter-text" class="letter-text"></p>
+      </div>
+      <p class="letter-signature">— From someone who بيعتبرك زي أختو ❤️</p>
+      <button id="btn-to-memories" class="btn btn-secondary letter-next">Fakra... 📸</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 5 — MEMORIES ============ -->
+  <section id="screen-memories" class="screen">
+    <h2 class="screen-title">📸 شوية Memories</h2>
+    <div class="memories-grid" id="memories-grid"></div>
+    <button id="btn-to-game" class="btn btn-secondary">Game 3ashan Nada 🎮</button>
+  </section>
+
+  <!-- ============ SCREEN 6 — MINI GAME ============ -->
+  <section id="screen-game" class="screen">
+    <h2 class="screen-title">🎮 Game عشان ندى</h2>
+    <p class="soft-line">دوسي على القلوب ❤️ اجمعي 10 عشان تفتحي الهدية الأخيرة!</p>
+    <div class="game-score">Collected: <span id="game-count">0</span> ❤️</div>
+    <div id="game-field"></div>
+    <button id="btn-to-gift" class="btn btn-primary locked" disabled>🎁 كملي للهدية</button>
+  </section>
+
+  <!-- ============ SCREEN 7 — FINAL GIFT ============ -->
+  <section id="screen-gift" class="screen">
+    <canvas id="gift-confetti-canvas"></canvas>
+    <div class="gift-content">
+      <p class="soft-line" id="gift-pretext">🎁 فيه حاجة أخيرة...</p>
+
+      <div id="gift-box" class="gift-box">
+        <div class="gift-lid"></div>
+        <div class="gift-base"></div>
+        <div class="gift-ribbon-v"></div>
+        <div class="gift-ribbon-h"></div>
+      </div>
+
+      <button id="btn-open-gift" class="btn btn-primary">OPEN GIFT</button>
+
+      <div id="gift-reveal" class="gift-reveal hidden">
+        <h1 class="glow-title small-title">🎉 Surprise يا ندى 🎉</h1>
+        <p class="final-message">
+          انتي بجد حاجة مختلفة في حياتي ❤️<br><br>
+          وأنا مبسوط إن عندي واحدة زيك،<br>
+          صاحبتي وأختي في نفس الوقت 🥹❤️<br><br>
+          Happy Birthday يا ندوش 🎂❤️
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
